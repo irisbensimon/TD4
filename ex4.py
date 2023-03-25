@@ -3,7 +3,7 @@ import pandas as pd
 from alive_progress import alive_bar
 
 def get_manor_ids(placeId):
-    "Returns the list of manors from a  place"
+    "Returns the list of manors from a place"
     res = requests.get('https://opendomesday.org/api/1.0/place/'+str(placeId))
     data = res.json()
     if  'manors'  in data.keys():
