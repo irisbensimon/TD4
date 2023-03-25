@@ -87,3 +87,54 @@ git add .
 git commit -m "python script""
 ```
 
+## Exercice 3: Python Module
+
+1. Create a Python module with a get_manor_ids function that takes a place id as parameter and returns the list of manors.
+```
+nano getmanor.py
+```
+```
+import requests
+
+def get_manor_ids(placeId):
+        res = requests.get('https://opendomesday.org/api/1.0/place'+placeId)
+        data = res.json()
+        if 'manors' in data.keys():
+                return data['manors']
+        else:
+                return []
+ ```
+ 
+ 2. Check that calling your module does not produce any output
+ ```
+ python getmanor.py
+ ```
+ Any output.
+ 
+ 3. To test your module, open a python interpreter and call your function with the first place id from Derbyshire.
+```
+python
+import getmanor
+getmanor.get_manor_ids(2651555)
+exit()
+```
+4. Add a if __name__ == ’__main__’ : block with your previous test, at the end of your module, to make it usable as a script.
+```
+nano getmanor.py
+```
+```
+if __name__ == '__main__':
+    place_id = 2653753 # Derby, UK
+    manors = get_manor_ids(place_id)
+    print(f"Manor IDs in Derby: {manors}")
+```
+5. Check that calling your module now does produce an output.
+```
+python getmanor.py
+```
+6. Commit your changes in Git
+```
+git add .
+git commit -m "module get manor added"
+```
+
