@@ -138,3 +138,17 @@ git add .
 git commit -m "module get manor added"
 ```
 
+## Exercice 4: Python Program
+```
+python
+>>> import getmanor
+>>> derbyshire_manors = getmanor.get_all_manors_info()
+>>> import pandas as pd
+>>> df = pd.DataFrame.from_dict(derbyshire_manors, orient='index')
+>>> df.sum()
+geld_paid        1368.00
+total_ploughs      23.75
+dtype: float64
+>>> exit()
+$
+
